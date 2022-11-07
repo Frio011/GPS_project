@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/01.Scenes/MainScene.unity
+    guid: c8d21b0cfa8ee404a9454d6dddd5620a
+  - enabled: 1
+    path: Assets/01.Scenes/StickGameScene.unity
+    guid: 065f1356d6ec7284e8b42c47a5f7ec64
+  - enabled: 1
+    path: Assets/01.Scenes/Tutorial2GM.unity
+    guid: d6f633bf279ad3d4e9c7cd97909fdb60
+  - enabled: 1
+    path: Assets/01.Scenes/SellGameScene.unity
+    guid: bf6876fc004fd744c8760b479574ccb7
+  - enabled: 1
+    path: Assets/01.Scenes/Tutorial1GM.unity
+    guid: e5f2e2a175d7f2543bf57cc398010877
+  m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 3726d46c9b313444e80e36d2b4fe8160, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 2eb6f18c9eace294a8e557775b4dc3c0, type: 2}
