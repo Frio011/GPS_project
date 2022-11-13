@@ -18,13 +18,10 @@ public class NextButton : MonoBehaviour
     public GameObject[] Tags;
     public ButtonScript Bts;
 
-    public Rigidbody GuestPrefab;
-    public Transform GuestTrans;
-
-    private string[] Foodtags = { "Ham", "Mush", "pa", "Gesal", "Papric"};
+    private string[] Foodtags = { "Ham", "Mush", "pa", "Gesal", "Papric" };
     public void Button_clicked()
-    { 
-        if(Bts.LastQ < 1)
+    {
+        if (Bts.LastQ < 1)
         {
             for (int i = 0; i < Foodtags.Length; i++)
             {
@@ -42,7 +39,7 @@ public class NextButton : MonoBehaviour
                 Instantiate(PapricPrefab, PapricTrans.position, PapricTrans.rotation);
                 Instantiate(PaPrefab, PaTrans.position, PaTrans.rotation);
             }
-            Instantiate(GuestPrefab, GameObject.Find("StartMove").transform.position, GuestTrans.rotation);
         }
     }
+
 }

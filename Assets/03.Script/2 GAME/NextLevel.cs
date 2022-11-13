@@ -6,6 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour
 {
+    public AudioClip audio0;
+    public AudioClip audio1;
+    private AudioSource audioSource; //oneshot만 해결하면됨
+    public GameObject Image0;
+    public GameObject Image1;
+
+    public float GameTime = 0;
+    public float ButtonTime = 0;
+    public bool UpdateTimeTorF = false;
 
     public GameObject MainLoad2;
 
@@ -43,10 +52,12 @@ public class NextLevel : MonoBehaviour
         new string[]{"1", "0", "3", "0"},
         new string[]{"1", "2", "1", "1"}
     };
-    private string[] RFPKtags = { "Fcake", "Kbob", "Pajun", "Rcake","FCB" };
+    private string[] RFPKtags = { "Fcake", "Kbob", "Pajun", "Rcake", "FCB" };
 
     public void Change() // 버튼 클릭시 실행
     {
+        ButtonTime = GameTime;
+        UpdateTimeTorF = true;
 
         InputList[0] = MainLoad2.GetComponent<TrayScript>().Rc.ToString();
         InputList[1] = MainLoad2.GetComponent<TrayScript>().Fc.ToString();
@@ -73,11 +84,13 @@ public class NextLevel : MonoBehaviour
                     }
                     else
                     {
+                        Image0.SetActive(true);
                         Debug.Log("정답과 입력이 일치하지 않습니다.");
                         score = score - 1; // 정답 아닐 시 추가해둔 점수 다시 뺌
                         break;
                     }
                 }
+                Image1.SetActive(true);
             }
             correctNum2 = correctNum2 + 1; //문제 넘어감
             tray.countreset();
@@ -110,11 +123,13 @@ public class NextLevel : MonoBehaviour
                     }
                     else
                     {
+                        Image0.SetActive(true);
                         Debug.Log("정답과 입력이 일치하지 않습니다.");
                         score = score - 1; // 정답 아닐 시 추가해둔 점수 다시 뺌
                         break;
                     }
                 }
+                Image1.SetActive(true);
             }
             Debug.Log("준비한 10 문제가 소진되었습니다.");
             Debug.Log("획득 점수 : " + score + "/10");
@@ -136,7 +151,20 @@ public class NextLevel : MonoBehaviour
 
     public void Start()
     {
+        audioSource = GetComponent<AudioSource>();
     }
 
+    void Update()
+    {
+        if (UpdateTimeTorF == true)
+        {
+            if (GameTime - ButtonTime > 3)
+            {
+                Image0.SetActive(false);
+                Image1.SetActive(false);
+                UpdateTimeTorF = false;
+            }
+        }
+        GameTime += Time.deltaTime;
+    }
 }
-

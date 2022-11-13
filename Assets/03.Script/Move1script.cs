@@ -8,7 +8,7 @@ public class Move1script : MonoBehaviour
     {
         if (collider.gameObject.tag == "NPC")
         {
-            if (collider.gameObject.GetComponent<MoveGuestscript>().TorF = true)
+            if (collider.gameObject.GetComponent<MoveGuestscript>().TorF == true)
             {
                 collider.gameObject.GetComponent<MoveGuestscript>().Move = 2;
                 collider.gameObject.GetComponent<MoveGuestscript>().TorF = false;
